@@ -1,7 +1,14 @@
 <template>
   <div id="app">
-    <div class="clickable clickable-red" style="top: 50px; left: 50px;" @click="click('red', $event)"></div>
-    <div class="clickable clickable-yellow" style="top: 100px; left: 100px;" @click="click('yellow', $event)"></div>
+    <div class="clickable clickable-red" style="top: 50px; left: 50px;" @click.self="click('red', $event)">
+      <div class="clickable clickable-yellow" style="top: 100px; left: 100px;" @click.stop.once="click('yellow', $event)">
+
+      </div>
+    </div>
+
+    <form action="#">
+      <input type="submit" value="Submit" @click.prevent="click('submit', $event)" />
+    </form>
   </div>
 </template>
 
@@ -9,6 +16,8 @@
 export default {
   methods: {
     click(name, event) {
+      //event.stopPropagation();
+      //event.preventDefault();
       console.log(event);
       alert(`Click ${name}!!!`);
     }
