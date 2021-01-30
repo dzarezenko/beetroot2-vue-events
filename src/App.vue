@@ -9,6 +9,12 @@
     <form action="#">
       <input type="submit" value="Submit" @click.prevent="click('submit', $event)" />
     </form>
+
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <textarea @keyup.efodin="keyboard">
+
+    </textarea>
   </div>
 </template>
 
@@ -20,6 +26,9 @@ export default {
       //event.preventDefault();
       console.log(event);
       alert(`Click ${name}!!!`);
+    },
+    keyboard(event) {
+      console.log(event);
     }
   }
 }
