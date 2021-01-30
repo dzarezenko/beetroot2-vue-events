@@ -1,36 +1,31 @@
 <template>
   <div id="app">
-    <div class="clickable clickable-red" style="top: 50px; left: 50px;" @click.self="click('red', $event)">
-      <div class="clickable clickable-yellow" style="top: 100px; left: 100px;" @click.stop.once="click('yellow', $event)">
-
-      </div>
+    <input type="text" value="red" v-model="whatToShow" />
+  
+    <div v-if="whatToShow == 'red'" class="clickable clickable-red" style="top: 50px; left: 50px;" @click.self="click('red', $event)">
+      <div v-if="true" />
     </div>
-
-    <form action="#">
-      <input type="submit" value="Submit" @click.prevent="click('submit', $event)" />
-    </form>
-
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <textarea @keyup.efodin="keyboard">
-
-    </textarea>
+    <div v-else-if="whatToShow == 'yellow'" class="clickable clickable-yellow" style="top: 100px; left: 100px;" @click.stop.once="click('yellow', $event)"></div>
+    <div v-else class="clickable clickable-green" style="top: 100px; left: 100px;" @click.stop.once="click('green', $event)"></div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      whatToShow: "red",
+    }
+  },
   methods: {
     click(name, event) {
       //event.stopPropagation();
       //event.preventDefault();
-      console.log(event);
-      alert(`Click ${name}!!!`);
+      //console.log(event);
+      //alert(`Click ${name}!!!`);
+      //this.showRed();
     },
-    keyboard(event) {
-      console.log(event);
-    }
-  }
+  },
 }
 </script>
 
@@ -46,5 +41,8 @@ div.clickable-red {
 }
 div.clickable-yellow {
   background-color: yellow;
+}
+div.clickable-green {
+  background-color: green;
 }
 </style>
