@@ -7,11 +7,19 @@
     </div>
     <div v-else-if="whatToShow == 'yellow'" class="clickable clickable-yellow" style="top: 100px; left: 100px;" @click.stop.once="click('yellow', $event)"></div>
     <div v-else class="clickable clickable-green" style="top: 100px; left: 100px;" @click.stop.once="click('green', $event)"></div>
+
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <Show />
   </div>
 </template>
 
 <script>
+import Show from "./components/Show";
+
 export default {
+  components: {
+    Show,
+  },
   data() {
     return {
       whatToShow: "red",
