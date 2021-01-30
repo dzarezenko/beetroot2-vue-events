@@ -1,12 +1,18 @@
 <template>
   <div id="app">
-    <div class="clickable clickable-red" style="top: 50px; left: 50px;"></div>
+    <div class="clickable clickable-red" style="top: 50px; left: 50px;" @click="click('red', $event)"></div>
+    <div class="clickable clickable-yellow" style="top: 100px; left: 100px;" @click="click('yellow', $event)"></div>
   </div>
 </template>
 
 <script>
 export default {
-  
+  methods: {
+    click(name, event) {
+      console.log(event);
+      alert(`Click ${name}!!!`);
+    }
+  }
 }
 </script>
 
@@ -19,5 +25,8 @@ div.clickable {
 }
 div.clickable-red {
   background-color: red;
+}
+div.clickable-yellow {
+  background-color: yellow;
 }
 </style>
